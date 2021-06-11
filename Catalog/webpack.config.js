@@ -3,9 +3,11 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
-module.exports = {  
+module.exports = (env, argv) => ({   
     output: {
-        publicPath: "http://localhost:7001/",
+        publicPath: argv.mode === 'production' 
+                        ? path.resolve(__dirname, './dist') 
+                        : 'http://localhost:7001/',
     },
 
     resolve: {
@@ -60,4 +62,4 @@ module.exports = {
             template: "./index.html",
         }),
     ],
-};
+});

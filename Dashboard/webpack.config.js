@@ -13,9 +13,11 @@ for(let dependency in shared_dependencies) {
     }
 }
 
-module.exports = {   
+module.exports = (env, argv) => ({   
     output: {
-        publicPath: "http://localhost:7000/",
+        publicPath: argv.mode === 'production' 
+                        ? path.resolve(__dirname, './dist') 
+                        : 'http://localhost:7000/',
     },
 
     resolve: {
@@ -62,7 +64,7 @@ module.exports = {
             name: "dashboard",
             filename: "remoteEntry.js",
             remotes: {
-                catalog: "catalog@http://localhost:7001/remoteEntry.js",
+                catalog: `catalog@${argv.mode === 'development' ? 'http://localhost:7001/' : 'https://adoring-poincare-02d23f.netlify.app'}/remoteEntry.js`,
             },
             exposes: {},
             shared: shared_dependencies,
@@ -71,4 +73,4 @@ module.exports = {
             template: "./index.html",
         }),
     ],
-};
+});
