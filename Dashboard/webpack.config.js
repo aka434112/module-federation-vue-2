@@ -1,8 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const { ModuleFederationPlugin } = require("webpack").container;
+const webpack = require("webpack");
+const { ModuleFederationPlugin } = webpack.container;
 const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 let shared_dependencies = require("./package.json").dependencies;
+
+const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
 
 for(let dependency in shared_dependencies) {
     shared_dependencies[dependency] = { 
@@ -41,20 +44,34 @@ module.exports = (env, argv) => ({
         },
     },
 
+    experiments: {
+        topLevelAwait: true
+    },    
+
     module: {
         rules: [
-        {
-            test: /\.vue$/,
-            loader: "vue-loader",
-        },
-        {
-            test: /\.s[ac]ss$/i,
-            use: ["style-loader", "css-loader"],
-        },
-        {
-            test: /\.css?$/,
-            use: ["style-loader", "css-loader"],
-        },      
+            {
+                test: /\.vue$/,
+                loader: "vue-loader",
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.css?$/,
+                use: ["style-loader", "css-loader"],
+            },    
+            {
+                test: /\.(js|mjs|jsx|ts|tsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ['@babel/plugin-syntax-top-level-await'],
+                    }
+                }    
+            }          
         ],
     },
 
@@ -64,13 +81,17 @@ module.exports = (env, argv) => ({
             name: "dashboard",
             filename: "remoteEntry.js",
             remotes: {
-                catalog: `catalog@${argv.mode === 'development' ? 'http://localhost:7001/' : 'https://adoring-poincare-02d23f.netlify.app'}/remoteEntry.js`,
+                catalog: `catalog@${
+                    argv.mode === 'development' 
+                        ? 'http://localhost:7001/' 
+                        : CATALOG_APP_URL
+                    }/remoteEntry.js`,
             },
             exposes: {},
             shared: shared_dependencies,
         }),
         new HtmlWebPackPlugin({
             template: "./index.html",
-        }),
+        }),       
     ],
 });
