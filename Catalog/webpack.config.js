@@ -65,7 +65,10 @@ module.exports = (env, argv) => {
         ],
     }
 
-    // if(argv.mode === 'production') config.entry = { catalog: './set-public-path.js', }
+    config.entry = {
+        main: './src/index.js',
+        catalog: './set-public-path',
+    }
 
     return config;
 };
