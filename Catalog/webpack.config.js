@@ -6,7 +6,7 @@ const path = require("path");
 module.exports = (env, argv) => ({   
     output: {
         publicPath: argv.mode === 'production' 
-                        ? path.resolve(__dirname, './dist') 
+                        ? '/' 
                         : 'http://localhost:7001/',
     },
 
