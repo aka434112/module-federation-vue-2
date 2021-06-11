@@ -6,3 +6,7 @@ This repository houses micro-frontends brought together using Module Federation 
 
 Run each micro-frontend and visit localhost:7000 to access the application. 
 Each micro-frontend can be accessed individually as well.
+
+Click [here](https://cranky-johnson-fb32bc.netlify.app/) to access the live dashboard.
+
+Click [here](https://adoring-poincare-02d23f.netlify.app/) to access the live catalog.
