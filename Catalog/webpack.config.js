@@ -3,8 +3,12 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
-module.exports = (env, argv) => {
-    const config = {   
+module.exports = (env, argv) => ({   
+        entry = {
+            main: './src/index.js',
+            catalog: './set-public-path',
+        },
+
         output: {
             publicPath: argv.mode === 'production' 
                             ? '/' 
@@ -63,12 +67,4 @@ module.exports = (env, argv) => {
                 template: "./index.html",
             }),
         ],
-    }
-
-    config.entry = {
-        main: './src/index.js',
-        // catalog: './set-public-path',
-    }
-
-    return config;
-};
+    });
