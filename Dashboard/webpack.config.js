@@ -6,7 +6,7 @@ const path = require("path");
 let shared_dependencies = require("./package.json").dependencies;
 
 const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
-const CART_APP_URL = '';
+const CART_APP_URL = 'https://elastic-liskov-de33d7.netlify.app';
 
 for(let dependency in shared_dependencies) {
     shared_dependencies[dependency] = { 
