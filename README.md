@@ -10,3 +10,5 @@ Each micro-frontend can be accessed individually as well.
 Click [here](https://cranky-johnson-fb32bc.netlify.app/) to access the live dashboard.
 
 Click [here](https://adoring-poincare-02d23f.netlify.app/) to access the live catalog.
+
+Click [here](https://elastic-liskov-de33d7.netlify.app/) to access the live cart.
