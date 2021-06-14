@@ -67,7 +67,7 @@ module.exports = (env, argv) => {
 
     config.entry = {
         main: './src/index.js',
-        catalog: './set-public-path',
+        // catalog: './set-public-path',
     }
 
     return config;
