@@ -4,6 +4,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
 const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
+const DASHBOARD_APP_URL = 'https://cranky-johnson-fb32bc.netlify.app/';
 
 module.exports = (env, argv) => ({   
         entry: {
@@ -66,7 +67,12 @@ module.exports = (env, argv) => ({
                         argv.mode === 'development' 
                             ? 'http://localhost:7001/' 
                             : CATALOG_APP_URL
-                        }/remoteEntry.js`
+                        }/remoteEntry.js`,
+                    dashboard: `dashboard@${
+                        argv.mode === 'development' 
+                            ? 'http://localhost:7000/' 
+                            : DASHBOARD_APP_URL
+                        }/remoteEntry.js`,                        
                 },
                 exposes: {
                     "./cart-items": "./src/App.vue",
