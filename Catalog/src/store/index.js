@@ -13,7 +13,6 @@ export default new Vuex.Store({
   mutations: {
     ADD_TO_CART(state, product) {
         state.cart.push(product);
-        state.cart = [ ...state.cart ];
     },
     SET_PRODUCTS(state, products) {
         state.products = products;

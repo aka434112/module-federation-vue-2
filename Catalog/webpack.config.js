@@ -3,8 +3,6 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
-const CART_APP_URL = 'https://elastic-liskov-de33d7.netlify.app';
-
 module.exports = (env, argv) => ({   
         entry: {
             main: './src/index.js',

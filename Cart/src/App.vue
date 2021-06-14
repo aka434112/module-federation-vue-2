@@ -10,11 +10,11 @@
       </thead>
       <tbody v-if="cart.length">
         <tr v-for="product in cart" :key="product">
-          <td>{{products[product].title}}</td>
-          <td>{{products[product].price | currency('€')}}</td>
+          <td>{{product_details[product].title}}</td>
+          <td>{{product_details[product].price | currency('€')}}</td>
           <td>
-            <input type="number" min="1"/> 
-            <b-icon-cart-dash title="Remove from Cart" role="button" @click="REMOVE_FROM_CART(product.id)"/>
+            <input type="number" min="1" value="1"/> 
+            <b-icon-cart-dash title="Remove from Cart" role="button" @click="REMOVE_FROM_CART(product)"/>
           </td>
         </tr>
       </tbody>
@@ -30,7 +30,15 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
   computed: {
-    ...mapState(["cart", "products"])
+    ...mapState(["cart", "products"]),
+    product_details() {
+      const product_details = {};
+      for(let product of products) {
+        if(this.cart.includes(product.id)) 
+          product_details[product.id] = product;
+      }
+      return product_details;
+    }
   },
   methods: {
     ...mapMutations(["REMOVE_FROM_CART"])

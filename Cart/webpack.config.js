@@ -4,7 +4,6 @@ const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
 const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
-const DASHBOARD_APP_URL = 'https://cranky-johnson-fb32bc.netlify.app/';
 
 module.exports = (env, argv) => ({   
         entry: {
