@@ -9,6 +9,7 @@
           <th>Product</th>
           <th>Price</th>
           <th>Inventory</th>
+          <th>Required Qty.</th>
         </tr>
       </thead>
       <tbody v-if="pageProducts.length">

@@ -8,20 +8,13 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-
   export default {
     name: 'appSidebar',
     computed: {
-      ...mapState(["cart"]),
       items_in_cart() {
-        return Object.keys(this.cart).filter(product => this.cart[product]).length;
+        const cart = this.$store.state.cart;
+        return Object.keys(cart).filter(product => cart[product]).length;
       }
-    },
-    created() {
-      setInterval(() => {
-        console.log(Object.keys(this.cart));
-      }, 10000)
     }
   }
 </script>
