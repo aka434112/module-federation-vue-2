@@ -88,7 +88,7 @@ module.exports = (env, argv) => ({
                         ? 'http://localhost:7001/' 
                         : CATALOG_APP_URL
                     }/remoteEntry.js`,
-                cart: `catalog@${
+                cart: `cart@${
                     argv.mode === 'development' 
                         ? 'http://localhost:7002/' 
                         : CART_APP_URL

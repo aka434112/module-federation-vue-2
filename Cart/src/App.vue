@@ -5,6 +5,7 @@
         <tr>
           <th>Product</th>
           <th>Price</th>
+          <th>Required Qty.</th>
         </tr>
       </thead>
       <tbody v-if="cart.length">
