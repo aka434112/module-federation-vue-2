@@ -67,12 +67,7 @@ module.exports = (env, argv) => ({
                         argv.mode === 'development' 
                             ? 'http://localhost:7001/' 
                             : CATALOG_APP_URL
-                        }/remoteEntry.js`,
-                    dashboard: `dashboard@${
-                        argv.mode === 'development' 
-                            ? 'http://localhost:7000/' 
-                            : DASHBOARD_APP_URL
-                        }/remoteEntry.js`,                        
+                        }/remoteEntry.js`                      
                 },
                 exposes: {
                     "./cart-items": "./src/App.vue",

@@ -4,7 +4,6 @@ const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
 const CART_APP_URL = 'https://elastic-liskov-de33d7.netlify.app';
-const DASHBOARD_APP_URL = 'https://cranky-johnson-fb32bc.netlify.app/';
 
 module.exports = (env, argv) => ({   
         entry: {
@@ -62,18 +61,7 @@ module.exports = (env, argv) => ({
             new ModuleFederationPlugin({
                 name: "catalog",
                 filename: "remoteEntry.js",
-                remotes: {
-                    dashboard: `dashboard@${
-                        argv.mode === 'development' 
-                            ? 'http://localhost:7000/' 
-                            : DASHBOARD_APP_URL
-                        }/remoteEntry.js`,
-                    cart: `cart@${
-                        argv.mode === 'development' 
-                            ? 'http://localhost:7002/' 
-                            : CART_APP_URL
-                        }/remoteEntry.js`, 
-                },
+                remotes: {},
                 exposes: {
                     "./products": "./src/components/products/products.vue",
                     "./store": "./src/store/index.js"
