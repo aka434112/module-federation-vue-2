@@ -8,7 +8,7 @@ const CART_APP_URL = 'https://elastic-liskov-de33d7.netlify.app';
 module.exports = (env, argv) => ({   
         entry: {
             main: './src/index.js',
-            catalog: './set-public-path',
+            catalog: './set-public-path.js',
         },
 
         output: {

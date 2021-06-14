@@ -9,7 +9,7 @@ const DASHBOARD_APP_URL = 'https://cranky-johnson-fb32bc.netlify.app/';
 module.exports = (env, argv) => ({   
         entry: {
             main: './src/index.js',
-            catalog: './set-public-path',
+            catalog: './set-public-path.js',
         },
 
         output: {
