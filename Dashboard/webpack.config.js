@@ -95,7 +95,7 @@ module.exports = (env, argv) => ({
                     }/remoteEntry.js`, 
             },
             exposes: {},
-            // shared: shared_dependencies,
+            shared: shared_dependencies,
         }),
         new HtmlWebPackPlugin({
             template: "./index.html",
