@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
 module.exports = (env, argv) => ({   
-        entry = {
+        entry: {
             main: './src/index.js',
             catalog: './set-public-path',
         },
@@ -34,6 +34,7 @@ module.exports = (env, argv) => ({
                 "Access-Control-Allow-Headers":
                     "X-Requested-With, content-type, Authorization",
             },
+            historyApiFallback: true
         },
 
         module: {
@@ -61,6 +62,7 @@ module.exports = (env, argv) => ({
                 remotes: {},
                 exposes: {
                     "./products": "./src/components/products/products.vue",
+                    "./store": "./src/store/index.js"
                 },
             }),
             new HtmlWebPackPlugin({

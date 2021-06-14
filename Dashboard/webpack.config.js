@@ -42,6 +42,7 @@ module.exports = (env, argv) => ({
             "Access-Control-Allow-Headers":
                 "X-Requested-With, content-type, Authorization",
         },
+        historyApiFallback: true
     },
 
     experiments: {
@@ -88,7 +89,7 @@ module.exports = (env, argv) => ({
                     }/remoteEntry.js`,
             },
             exposes: {},
-            shared: shared_dependencies,
+            // shared: shared_dependencies,
         }),
         new HtmlWebPackPlugin({
             template: "./index.html",

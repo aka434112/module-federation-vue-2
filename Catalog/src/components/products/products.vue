@@ -16,6 +16,11 @@
           <td>{{product.title}}</td>
           <td>{{product.price | currency('€')}}</td>
           <td>{{product.inventory}}</td>
+          <td>
+            <input :value="cart[product.id] || 0" type="number" @change="UPDATE_CART({
+              [product.id]: $event.target.value 
+            })"/>
+          </td>
         </tr>
       </tbody>
       <tbody v-else>
@@ -32,6 +37,7 @@
 <script>
   import search from './../catalog/search.vue'
   import productsService from './../../services/products.js'
+  import { mapState, mapMutations } from 'vuex';
 
   export default {
     name: 'products',
@@ -63,8 +69,16 @@
 
         this.totalRows = result.length;
         return result.slice(pageNumberIndex * this.pageSize, (pageNumberIndex + 1) * this.pageSize);
-      }
-    }
+      },
+      ...mapState([
+        "cart"
+      ]),
+    },
+    methods: {
+      ...mapMutations([
+        "UPDATE_CART"
+      ])
+    }    
   }
 </script>
 
