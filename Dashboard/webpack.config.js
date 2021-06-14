@@ -6,6 +6,7 @@ const path = require("path");
 let shared_dependencies = require("./package.json").dependencies;
 
 const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
+const CART_APP_URL = '';
 
 for(let dependency in shared_dependencies) {
     shared_dependencies[dependency] = { 
@@ -87,6 +88,11 @@ module.exports = (env, argv) => ({
                         ? 'http://localhost:7001/' 
                         : CATALOG_APP_URL
                     }/remoteEntry.js`,
+                cart: `catalog@${
+                    argv.mode === 'development' 
+                        ? 'http://localhost:7002/' 
+                        : CART_APP_URL
+                    }/remoteEntry.js`, 
             },
             exposes: {},
             // shared: shared_dependencies,

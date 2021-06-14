@@ -8,14 +8,12 @@
         <tr>
           <th>Product</th>
           <th>Price</th>
-          <th>Inventory</th>
         </tr>
       </thead>
       <tbody v-if="pageProducts.length">
         <tr v-for="product in pageProducts" :key="product.id">
           <td>{{product.title}}</td>
           <td>{{product.price | currency('€')}}</td>
-          <td>{{product.inventory}}</td>
           <td>
             <b-icon-cart-plus title="Add to Cart" role="button" v-if="!cart.includes(product.id)" @click="ADD_TO_CART(product.id)"/>
             <b-icon-cart-dash title="Remove from Cart" role="button" v-else @click="REMOVE_FROM_CART(product.id)"/>

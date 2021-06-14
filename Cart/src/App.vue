@@ -1,32 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody v-if="cart.length">
+        <tr v-for="product in cart" :key="product">
+          <td>{{products[product].title}}</td>
+          <td>{{products[product].price | currency('€')}}</td>
+          <td>
+            <input type="number" min="1"/> 
+            <b-icon-cart-dash title="Remove from Cart" role="button" @click="REMOVE_FROM_CART(product.id)"/>
+          </td>
+        </tr>
+      </tbody>
+      <tbody v-else>
+        <tr><td colspan="3">No items in the cart</td></tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapState, mapMutations } from 'vuex';
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  computed: {
+    ...mapState(["cart", "products"])
+  },
+  methods: {
+    ...mapMutations(["REMOVE_FROM_CART"])
   }
 }
+</script>
+
+<style lang="scss">
+
 </style>

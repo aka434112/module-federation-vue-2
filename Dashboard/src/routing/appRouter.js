@@ -3,7 +3,8 @@ import home from './../components/home/home.vue'
 
 const routes = [
     { path: '/', component: home },
-    { path: '/products', component: () => import('catalog/products') }
+    { path: '/products', component: () => import('catalog/products') },
+    { path: '/cart', component: () => import('cart/cart-items') }
 ];
 
 export default new Router({
