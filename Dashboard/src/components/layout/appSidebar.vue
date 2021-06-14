@@ -12,8 +12,7 @@
     name: 'appSidebar',
     computed: {
       items_in_cart() {
-        const cart = this.$store.state.cart;
-        return Object.keys(cart).filter(product => cart[product]).length;
+        return this.$store.state.cart.length;
       }
     }
   }

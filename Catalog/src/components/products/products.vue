@@ -9,7 +9,6 @@
           <th>Product</th>
           <th>Price</th>
           <th>Inventory</th>
-          <th>Required Qty.</th>
         </tr>
       </thead>
       <tbody v-if="pageProducts.length">
@@ -18,9 +17,8 @@
           <td>{{product.price | currency('€')}}</td>
           <td>{{product.inventory}}</td>
           <td>
-            <input :value="cart[product.id] || 0" type="number" @change="UPDATE_CART({
-              [product.id]: $event.target.value 
-            })"/>
+            <b-icon-cart-plus title="Add to Cart" role="button" v-if="!cart.includes(product.id)" @click="ADD_TO_CART(product.id)"/>
+            <b-icon-cart-dash title="Remove from Cart" role="button" v-else @click="REMOVE_FROM_CART(product.id)"/>
           </td>
         </tr>
       </tbody>
@@ -37,8 +35,7 @@
 
 <script>
   import search from './../catalog/search.vue'
-  import productsService from './../../services/products.js'
-  import { mapState, mapMutations } from 'vuex';
+  import { mapState, mapActions, mapMutations } from 'vuex';
 
   export default {
     name: 'products',
@@ -47,16 +44,14 @@
     },
     data: () => {
       return {
-        products: [],
         pageNumber: 1,
         pageSize: 5,
         totalRows: 0,
         searchTerm: ''
       }
     },
-    created() {
-      const service = new productsService();
-      this.products = service.getProducts();
+    async created() {
+      await this.fetch_products();
       this.totalRows = this.products.length;
     },
     computed: {
@@ -72,12 +67,17 @@
         return result.slice(pageNumberIndex * this.pageSize, (pageNumberIndex + 1) * this.pageSize);
       },
       ...mapState([
-        "cart"
+        "cart",
+        "products"
       ]),
     },
     methods: {
       ...mapMutations([
-        "UPDATE_CART"
+        "ADD_TO_CART",
+        "REMOVE_FROM_CART"
+      ]),
+      ...mapActions([
+        "fetch_products"
       ])
     }    
   }
