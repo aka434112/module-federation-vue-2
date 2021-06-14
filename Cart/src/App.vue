@@ -33,7 +33,7 @@ export default {
     ...mapState(["cart", "products"]),
     product_details() {
       const product_details = {};
-      for(let product of products) {
+      for(let product of this.products) {
         if(this.cart.includes(product.id)) 
           product_details[product.id] = product;
       }
