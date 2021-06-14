@@ -3,6 +3,8 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const { VueLoaderPlugin } = require('vue-loader')
 const path = require("path");
 
+const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
+
 module.exports = (env, argv) => ({   
         entry: {
             main: './src/index.js',
