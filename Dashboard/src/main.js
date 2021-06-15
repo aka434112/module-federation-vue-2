@@ -15,6 +15,7 @@ Vue.use(Router)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.config.productionTip = false
+Vue.config.devtools = true
 
 new Vue({
   el: '#app',
