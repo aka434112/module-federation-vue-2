@@ -61,13 +61,6 @@ module.exports = (env, argv) => ({
             new ModuleFederationPlugin({
                 name: "cart",
                 filename: "remoteEntry.js",
-                remotes: {
-                    catalog: `catalog@${
-                        argv.mode === 'development' 
-                            ? 'http://localhost:7001/' 
-                            : CATALOG_APP_URL
-                        }/remoteEntry.js`                      
-                },
                 exposes: {
                     "./cart-items": "./src/App.vue",
                 },
