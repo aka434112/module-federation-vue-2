@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Vue.js Demo</a>
+        <a class="navbar-brand" href="#">Module Federation with Vue</a>
       </div>
     </nav>
 </template>
