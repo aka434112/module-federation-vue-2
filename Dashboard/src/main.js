@@ -7,7 +7,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import app from './App.vue'
 import appRouter from './routing/appRouter.js'
 import Vuex from 'vuex'
-import catalogStore from 'catalog/store'
+import catalogState from 'catalog/state'
+import catalogActions from 'catalog/actions'
+import catalogMutations from 'catalog/mutations'
+import catalogGetters from 'catalog/getters'
 
 Vue.use(Vuex)
 Vue.use(Vue2Filters)
@@ -20,7 +23,20 @@ Vue.config.devtools = true
 new Vue({
   el: '#app',
   router: appRouter,
-  store: catalogStore,
+  store: new Vuex.Store({
+    state: {
+      ...catalogState
+    },
+    actions: {
+      ...catalogActions
+    },
+    mutations: {
+      ...catalogMutations
+    },
+    getters: {
+      ...catalogGetters
+    }
+  }),
   components: { app },
   template: '<app/>'
 })

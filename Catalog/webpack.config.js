@@ -62,7 +62,10 @@ module.exports = (env, argv) => ({
                 remotes: {},
                 exposes: {
                     "./products": "./src/components/products/products.vue",
-                    "./store": "./src/store/index.js"
+                    "./state": "./src/store/state.js",
+                    "./actions": "./src/store/actions.js",
+                    "./mutations": "./src/store/mutations.js",
+                    "./getters": "./src/store/getters.js"
                 },
             }),
             new HtmlWebPackPlugin({
