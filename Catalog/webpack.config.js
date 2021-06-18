@@ -38,7 +38,6 @@ module.exports = (env, argv) => ({
         },
 
         externals: ["vue", "vue-router"],
-        filenameHashing: false,
 
         module: {
             rules: [

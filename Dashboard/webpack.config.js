@@ -47,7 +47,6 @@ module.exports = (env, argv) => ({
     },
 
     externals: ["vue", "vue-router"],
-    filenameHashing: false,
 
     experiments: {
         topLevelAwait: true
