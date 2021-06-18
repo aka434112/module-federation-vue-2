@@ -20,7 +20,7 @@ for(let dependency in shared_dependencies) {
 module.exports = (env, argv) => ({   
     output: {
         publicPath: argv.mode === 'production' 
-                        ? '/'
+                        ? '/dashboard/'
                         : 'http://localhost:7000/',
         clean: true, 
     },

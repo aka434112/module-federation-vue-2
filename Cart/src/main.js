@@ -1,4 +1,3 @@
-import './set-public-path.js'
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store/index.js'

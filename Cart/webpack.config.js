@@ -13,7 +13,7 @@ module.exports = (env, argv) => ({
 
         output: {
             publicPath: argv.mode === 'production' 
-                            ? '/' 
+                            ? '/cart/' 
                             : 'http://localhost:7002/',
             clean: true,  
         },
