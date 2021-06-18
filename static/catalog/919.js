@@ -1,1 +1,0 @@
-(self.webpackChunkproducts_catalog=self.webpackChunkproducts_catalog||[]).push([[919],{1919:function(c,t,u){"use strict";u.r(t),t.default={cart:[],products:{}}}}]);
