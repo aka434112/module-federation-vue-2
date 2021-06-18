@@ -81,24 +81,24 @@ module.exports = (env, argv) => ({
 
     plugins: [
         new VueLoaderPlugin(),
-        new ModuleFederationPlugin({
-            name: "dashboard",
-            filename: "remoteEntry.js",
-            remotes: {
-                catalog: `catalog@${
-                    argv.mode === 'development' 
-                        ? 'http://localhost:7001/' 
-                        : CATALOG_APP_URL
-                    }/remoteEntry.js`,
-                cart: `cart@${
-                    argv.mode === 'development' 
-                        ? 'http://localhost:7002/' 
-                        : CART_APP_URL
-                    }/remoteEntry.js`, 
-            },
-            exposes: {},
-            // shared: shared_dependencies,
-        }),
+        // new ModuleFederationPlugin({
+        //     name: "dashboard",
+        //     filename: "remoteEntry.js",
+        //     remotes: {
+        //         catalog: `catalog@${
+        //             argv.mode === 'development' 
+        //                 ? 'http://localhost:7001/' 
+        //                 : CATALOG_APP_URL
+        //             }/remoteEntry.js`,
+        //         cart: `cart@${
+        //             argv.mode === 'development' 
+        //                 ? 'http://localhost:7002/' 
+        //                 : CART_APP_URL
+        //             }/remoteEntry.js`, 
+        //     },
+        //     exposes: {},
+        //     // shared: shared_dependencies,
+        // }),
         new HtmlWebPackPlugin({
             template: "./index.html",
         }),       

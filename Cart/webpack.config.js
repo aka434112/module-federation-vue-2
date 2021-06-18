@@ -60,13 +60,13 @@ module.exports = (env, argv) => ({
 
         plugins: [
             new VueLoaderPlugin(),
-            new ModuleFederationPlugin({
-                name: "cart",
-                filename: "remoteEntry.js",
-                exposes: {
-                    "./cart-items": "./src/App.vue",
-                },
-            }),
+            // new ModuleFederationPlugin({
+            //     name: "cart",
+            //     filename: "remoteEntry.js",
+            //     exposes: {
+            //         "./cart-items": "./src/App.vue",
+            //     },
+            // }),
             new HtmlWebPackPlugin({
                 template: "./index.html",
             }),

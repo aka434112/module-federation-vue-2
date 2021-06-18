@@ -58,18 +58,18 @@ module.exports = (env, argv) => ({
 
         plugins: [
             new VueLoaderPlugin(),
-            new ModuleFederationPlugin({
-                name: "catalog",
-                filename: "remoteEntry.js",
-                remotes: {},
-                exposes: {
-                    "./products": "./src/components/products/products.vue",
-                    "./state": "./src/store/state.js",
-                    "./actions": "./src/store/actions.js",
-                    "./mutations": "./src/store/mutations.js",
-                    "./getters": "./src/store/getters.js"
-                },
-            }),
+            // new ModuleFederationPlugin({
+            //     name: "catalog",
+            //     filename: "remoteEntry.js",
+            //     remotes: {},
+            //     exposes: {
+            //         "./products": "./src/components/products/products.vue",
+            //         "./state": "./src/store/state.js",
+            //         "./actions": "./src/store/actions.js",
+            //         "./mutations": "./src/store/mutations.js",
+            //         "./getters": "./src/store/getters.js"
+            //     },
+            // }),
             new HtmlWebPackPlugin({
                 template: "./index.html",
             }),

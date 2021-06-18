@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-import catalogState from 'catalog/state'
-import catalogActions from 'catalog/actions'
-import catalogMutations from 'catalog/mutations'
-import catalogGetters from 'catalog/getters'
-import router from './routing/appRouter.js'
 
 import Router from 'vue-router'
 import Vuex from 'vuex'
@@ -26,21 +21,7 @@ const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
     render: (h) => h(App),
-    router,
-    store: new Vuex.Store({
-      state: {
-        ...catalogState
-      },
-      actions: {
-        ...catalogActions
-      },
-      mutations: {
-        ...catalogMutations
-      },
-      getters: {
-        ...catalogGetters
-      }
-    })    
+    router  
   },
 });
 
