@@ -22,6 +22,7 @@ module.exports = (env, argv) => ({
         publicPath: argv.mode === 'production' 
                         ? '/'
                         : 'http://localhost:7000/',
+        clean: true, 
     },
 
     resolve: {
