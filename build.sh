@@ -1,6 +1,6 @@
-cd Dashboard && npm run build && rm dist/index.html
-cd ../Catalog && npm run build && rm dist/index.html
-cd ../Cart && npm run build && rm dist/index.html
+cd Dashboard && npm i && npm run build && rm dist/index.html
+cd ../Catalog  && npm i && npm run build && rm dist/index.html
+cd ../Cart && npm i && npm run build && rm dist/index.html
 cd ..
 mkdir -p static/dashboard static/catalog static/cart && cp -a dashboard/dist/* static/dashboard && cp -a catalog/dist/* static/catalog && cp -a cart/dist/* static/cart
 cp root-html/index.html static
