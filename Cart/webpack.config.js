@@ -8,7 +8,7 @@ const CATALOG_APP_URL = 'https://adoring-poincare-02d23f.netlify.app';
 module.exports = (env, argv) => ({   
         entry: {
             main: './src/index.js',
-            cart: './set-public-path.js',
+            // cart: './set-public-path.js',
         },
 
         output: {

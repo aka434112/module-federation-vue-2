@@ -6,7 +6,7 @@ const path = require("path");
 module.exports = (env, argv) => ({   
         entry: {
             main: './src/index.js',
-            catalog: './set-public-path.js',
+            // catalog: './set-public-path.js',
         },
 
         output: {

@@ -1,3 +1,4 @@
+import './set-public-path.js'
 import Vue from 'vue'
 import Router from 'vue-router'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
