@@ -1,6 +1,7 @@
 import './set-public-path.js'
 import Vue from 'vue'
 import App from './App.vue'
+import store from './store/index.js'
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import Vue2Filters from 'vue2-filters'
