@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './routing/appRouter.js'
 import store from './store/index.js'
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
@@ -17,7 +16,6 @@ const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
     render: (h) => h(App),
-    router,
     store
   },
 });
