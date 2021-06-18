@@ -46,7 +46,7 @@ module.exports = (env, argv) => ({
         historyApiFallback: true
     },
 
-    externals: ["vue", "vue-router"],
+    externals: ["vue", "vue-router", "vuex"],
 
     experiments: {
         topLevelAwait: true
