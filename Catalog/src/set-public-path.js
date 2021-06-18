@@ -1,3 +1,3 @@
 import { setPublicPath } from 'systemjs-webpack-interop'
 
-setPublicPath('catalog', 2)
+setPublicPath('catalog', 1)

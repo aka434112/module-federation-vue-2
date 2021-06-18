@@ -1,3 +1,3 @@
 import { setPublicPath } from 'systemjs-webpack-interop'
 
-setPublicPath('dashboard', 2)
+setPublicPath('dashboard', 1)
