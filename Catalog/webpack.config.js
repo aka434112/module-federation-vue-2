@@ -37,6 +37,9 @@ module.exports = (env, argv) => ({
             historyApiFallback: true
         },
 
+        externals: ["vue", "vue-router"],
+        filenameHashing: false,
+
         module: {
             rules: [
             {
