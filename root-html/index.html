@@ -9,18 +9,18 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "dashboard": "http://localhost:7000/main.js",
-          "catalog": "http://localhost:7001/main.js",
-          "cart": "http://localhost:7002/main.js",
-          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js",
+          "@vue-mf/dashboard": "http://localhost:7000/main.js",
+          "@vue-mf/catalog": "http://localhost:7001/main.js",
+          "@vue-mf/cart": "http://localhost:7002/main.js",
+          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.9.3/system/single-spa.min.js",
           "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
           "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
           "vuex": "https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.min.js"
         }
       }
     </script>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.3.7/system/single-spa.min.js" as="script" crossorigin="anonymous" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" as="script" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.9.3/system/single-spa.min.js" as="script" crossorigin="anonymous" />
     <script src="https://unpkg.com/import-map-overrides@1.7.2/dist/import-map-overrides.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/system.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/amd.min.js"></script>
@@ -28,7 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-register.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/use-default.min.js"></script>
   </head>
-  <body>
+  <body>     
     <script>
       (function() {
         Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router'), System.import('vuex')]).then(function (modules) {
@@ -37,26 +37,34 @@
           var VueRouter = modules[2];
           var Vuex = modules[3];
 
+            // If you're using SystemJS, run the following in the browser console to debug
+            System.import('@vue-mf/dashboard').then(application => {
+            // Verify that this object has the lifecycle functions on it.
+            // If compiling with webpack and consuming in-browser with SystemJS, consider
+            // setting webpack's output.libraryTarget to "system".
+            console.log(application)
+            })          
+
           Vue.use(VueRouter)
           Vue.use(Vuex)
 
           singleSpa.registerApplication(
-            'dashboard',
-            () => System.import('dashboard'),
-            location => true
+            '@vue-mf/dashboard',
+            () => System.import('@vue-mf/dashboard'),
+            location => location.pathname.startsWith('/'),
           );
 
           singleSpa.registerApplication(
-            'catalog',
-            () => System.import('catalog'),
-            location => location.pathname.startsWith('/catalog')
-          )
+            '@vue-mf/catalog',
+            () => System.import('@vue-mf/catalog'),
+            location => location.pathname.startsWith('/catalog'),
+          );
 
           singleSpa.registerApplication(
-            'cart',
-            () => System.import('cart'),
-            location => location.pathname.startsWith('/cart')
-          )
+            '@vue-mf/cart',
+            () => System.import('@vue-mf/cart'),
+            location => location.pathname.startsWith('/cart'),
+          );
 
           singleSpa.start();
         })

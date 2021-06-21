@@ -22,6 +22,7 @@ module.exports = (env, argv) => ({
         publicPath: argv.mode === 'production' 
                         ? '/dashboard/'
                         : 'http://localhost:7000/',
+        libraryTarget: 'system',
         clean: true, 
     },
 
@@ -47,7 +48,7 @@ module.exports = (env, argv) => ({
         historyApiFallback: true
     },
 
-    externals: ["vue", "vue-router", "vuex"],
+    externals: ["vue", "vue-router", "vuex", "/^@vue-mf\/.+/"],
 
     experiments: {
         topLevelAwait: true

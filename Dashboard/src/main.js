@@ -1,3 +1,4 @@
+import './set-public-path'
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -7,7 +8,8 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import Vue2Filters from 'vue2-filters'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import singleSpaVue from 'single-spa-vue';
+import singleSpaVue from 'single-spa-vue'
+import router from './routing/appRouter.js'
 
 Vue.use(Vuex)
 Vue.use(Vue2Filters)
